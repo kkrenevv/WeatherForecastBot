@@ -1,0 +1,5 @@
+__pycache__
+*.json
+test_parser.py
+weather_forecast.py
+.idea
