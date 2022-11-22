@@ -62,6 +62,7 @@ def persoanalize_user(user_id, user_name, user_nickname):
             )
             return None, None, None
 
+
 def update_user_last_city(user_id, user_last_city):
     with connection.cursor() as cursor:
         cursor.execute(

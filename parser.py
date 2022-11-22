@@ -59,7 +59,7 @@ def parse_weather_for_couple_days(url):
     sup = BS(html.text, 'lxml')
 
     # weather for 5-10 days
-    date = [i.contents[1].text.strip() + ', ' + i.contents[3].text.strip().split()[0] for i in
+    date = [i.contents[0].text.strip() + ', ' + i.contents[1].text.strip().split()[0] for i in
             sup.find(class_="widget-row widget-row-days-date").find_all('a')]
     weather = [i.get('data-text').strip() for i in
                sup.find(class_="widget-row widget-row-icon").find_all('div', class_="weather-icon tooltip")]

@@ -2,7 +2,6 @@ import telebot as tb
 from telebot import types
 import parser
 import sql
-from memory_profiler import memory_usage
 
 
 class WeatherBot(tb.TeleBot):
@@ -137,7 +136,6 @@ bot = WeatherBot('YOUR_TELEGRAM_BOT_TOKEN')
 def message_reply(message):
     user_id, user_name, user_nickname = message.from_user.id, message.from_user.first_name, message.from_user.username
     user_current_markup, user_last_city, user_city = sql.persoanalize_user(user_id, user_name, user_nickname)
-    print(memory_usage())
 
     # this if-else operator processing user's requests and calls appropriate functions in WeatherBot class
     if message.text.lower() == 'узнать погоду' and user_current_markup == 'start_markup' or message.text == '/start':
